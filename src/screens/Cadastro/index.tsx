@@ -4,14 +4,14 @@ import { style } from "./style";
 import { View, Image, Text, TouchableOpacity } from "react-native";
 import Receita from "../../assets/images/receita.png"
 import { TextInput } from "react-native-gesture-handler";
+import { Header } from "../../components/Header";
 
 export const Cadastro = ({ navigation }) => {
     return (
         <View style={style.container}>
-            <View style={style.header}>
-                <Image source={Receita} style={style.logo} />
-                <Text style={style.nome}>COZINHA10</Text>
-            </View>
+            <Header
+            titulo="Cozinha10"
+            />
                 
                 <View style={style.body}>
                         <Text style={{fontSize: 20, marginTop: 15}}>
