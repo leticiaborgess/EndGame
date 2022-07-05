@@ -5,6 +5,7 @@ import { View, Image, Text, TouchableOpacity } from "react-native";
 import Receita from "../../assets/images/receita.png"
 import { TextInput } from "react-native-gesture-handler";
 import { login } from "../../services/endgameApi";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface loginDataType {
     username: string,
@@ -16,10 +17,19 @@ export const Login = ({ navigation }) => {
 
     function handleSubmit() {
         login(loginData).then(res => {
-            console.log(res.headers.username);
+            storeData('@username', res.headers.username)
+            storeData('@hash', res.headers.authentication)
         }).catch(error => {
             console.log(error.response.headers.errormsg);
         });
+    }
+
+    const storeData = async (key: string, value: string) => {
+        try {
+            await AsyncStorage.setItem(key, value)
+        } catch (e) {
+            // saving error
+        }
     }
 
     return (
@@ -37,6 +47,7 @@ export const Login = ({ navigation }) => {
                 <TextInput
                     onChangeText={(text) => setLoginData({...loginData, senha:text})}
                     style={style.input}
+                    secureTextEntry={true}
                     placeholder="Senha"
                 />
             <Botao
