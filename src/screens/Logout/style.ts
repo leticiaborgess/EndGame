@@ -15,6 +15,9 @@ export const style = StyleSheet.create({
     sair: {
         fontSize: 25,
         fontWeight: 'bold',
+        alignItems: 'center',
+        padding: 10,
+        textAlign: 'center'
     },
     botoesSair:{
         flexDirection: 'row',
@@ -29,7 +32,8 @@ export const style = StyleSheet.create({
         width: 100,
         backgroundColor: 'red',
         marginTop: 15,
-        textAlign: 'center' 
+        textAlign: 'center',
+        color: '#fff' 
     },
     nao: {
         fontSize: 25,

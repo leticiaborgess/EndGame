@@ -1,10 +1,10 @@
 import React from "react";
-import { Rotas } from "./src/routes";
+import { Logout } from "./src/screens/Logout";
 
 
 const App = () =>  {
   return (
-    <Rotas />
+    < Logout/>
   )
 }
 export default App
