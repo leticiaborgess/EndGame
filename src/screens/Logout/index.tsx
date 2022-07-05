@@ -4,8 +4,28 @@ import { style } from "./style";
 import { View, Image, Text, TouchableOpacity } from "react-native";
 import Receita from "../../assets/images/receita.png"
 import { Header } from "../../components/Header";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const Logout = ( {navigation} ) => {
+
+    const removeValue = async (key: string) => {
+        try {
+            await AsyncStorage.removeItem(key);
+        } catch(e) {
+            console.log(e);
+        }
+    }
+
+    function handleSim() {
+        removeValue("@username");
+        removeValue("@hash");
+
+        navigation.navigate('Login');
+    }
+
+    function handleNao() {
+        navigation.navigate('Home');
+    }
 
     return (
         <View>
@@ -17,11 +37,11 @@ export const Logout = ( {navigation} ) => {
             </View>
             <View style={style.botoesSair}>
                 
-                <TouchableOpacity>
+                <TouchableOpacity onPress={handleSim}>
                     <Text style={style.sim}>Sim</Text>
                 </TouchableOpacity>
                 
-                <TouchableOpacity>
+                <TouchableOpacity onPress={handleNao}>
                     <Text style={style.nao}>Não</Text>
                 </TouchableOpacity>
             
