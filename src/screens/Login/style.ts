@@ -27,5 +27,13 @@ export const style = StyleSheet.create({
         marginTop: 20,
         width: 250
     
+      },
+
+      errorMsg: {
+        paddingHorizontal: 20,
+        paddingVertical: 5,
+        borderRadius: 10,
+        backgroundColor: '#f77',
+        textAlign: 'center'
       }
 })

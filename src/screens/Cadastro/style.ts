@@ -29,11 +29,18 @@ export const style = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    padding: 10,
+    padding: 8,
     borderRadius: 10,
     marginTop: '5%',
     width: 250
 
+  },
+
+  errorMsg: {
+    paddingHorizontal: 20,
+    paddingVertical: 5,
+    borderRadius: 10,
+    backgroundColor: '#f77'
   }
  
 })

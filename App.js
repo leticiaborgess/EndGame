@@ -1,10 +1,13 @@
 import React from "react";
-import { Logout } from "./src/screens/Logout";
+import { UserInfoProvider } from "./src/context/UserInfoContext";
+import { Rotas } from "./src/routes";
 
 
 const App = () =>  {
   return (
-    < Logout/>
+    <UserInfoProvider>
+      <Rotas />
+    </UserInfoProvider>
   )
 }
 export default App
