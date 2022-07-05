@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Botao } from "../../components/Botao";
 import { style } from "./style";
 import { View, Image, Text, TouchableOpacity } from "react-native";
 import Receita from "../../assets/images/receita.png"
 import { TextInput } from "react-native-gesture-handler";
 import { login } from "../../services/endgameApi";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { UserInfoContext } from "../../context/UserInfoContext";
 
 interface loginDataType {
     username: string,
@@ -14,22 +14,14 @@ interface loginDataType {
 
 export const Login = ({ navigation }) => {
     const [loginData, setLoginData] = useState<loginDataType>();
+    const {setUserData} = useContext(UserInfoContext);
 
     function handleSubmit() {
         login(loginData).then(res => {
-            storeData('@username', res.headers.username)
-            storeData('@hash', res.headers.authentication)
+            setUserData(res.headers.username, res.headers.hash);
         }).catch(error => {
             console.log(error.response.headers.errormsg);
         });
-    }
-
-    const storeData = async (key: string, value: string) => {
-        try {
-            await AsyncStorage.setItem(key, value)
-        } catch (e) {
-            // saving error
-        }
     }
 
     return (

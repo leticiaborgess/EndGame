@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Botao } from "../../components/Botao";
 import { style } from "./style";
 import { View, Text, TouchableOpacity } from "react-native";
