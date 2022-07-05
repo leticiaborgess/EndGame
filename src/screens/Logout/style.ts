@@ -10,7 +10,7 @@ export const style = StyleSheet.create({
         width: 300,
         height: 130,
         marginTop: 60,
-        padding: 30
+        padding: 20
     },
     sair: {
         fontSize: 25,
