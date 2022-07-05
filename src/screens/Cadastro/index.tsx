@@ -39,7 +39,7 @@ export const Cadastro = ({ navigation }) => {
                 setError(undefined);
                 navigation.navigate('Login');
             }).catch(error => {
-                setError("Usuário já existe");
+                setError(error.response.headers.errormsg);
             });
         }
     }, [connectData?.spoonUsername, connectData?.hash])

@@ -18,7 +18,7 @@ export const Login = ({ navigation }) => {
         login(loginData).then(res => {
             console.log(res.headers.username);
         }).catch(error => {
-            console.log(error);
+            console.log(error.response.headers.errormsg);
         });
     }
 
