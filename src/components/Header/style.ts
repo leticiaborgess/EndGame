@@ -19,8 +19,9 @@ export const style = StyleSheet.create({
     marginLeft: '2%'
   },
   nome: {
-    marginLeft: '20%',
+    marginLeft: '27%',
     fontWeight: 'bold',
-    fontSize: 25
+    fontSize: 25,
+    
   },
 })
