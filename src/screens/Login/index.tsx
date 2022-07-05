@@ -20,6 +20,7 @@ export const Login = ({ navigation }) => {
     function handleSubmit() {
         login(loginData).then(res => {
             setUserData(res.headers.username, res.headers.hash);
+            navigation.navigate('Home');
         }).catch(error => {
            setError(error.response.headers.errormsg);
         });
