@@ -15,12 +15,13 @@ interface loginDataType {
 export const Login = ({ navigation }) => {
     const [loginData, setLoginData] = useState<loginDataType>();
     const {setUserData} = useContext(UserInfoContext);
+    const [error, setError] = useState<string>();
 
     function handleSubmit() {
         login(loginData).then(res => {
             setUserData(res.headers.username, res.headers.hash);
         }).catch(error => {
-            console.log(error.response.headers.errormsg);
+           setError(error.response.headers.errormsg);
         });
     }
 
@@ -31,6 +32,15 @@ export const Login = ({ navigation }) => {
                 <Text style={style.nome}>COZINHA10</Text>
             </View>
             <View>
+
+                {error &&
+                <View style={style.errorMsg}>
+                    <Text>
+                        {error}
+                    </Text>
+                </View>
+                }
+
                 <TextInput
                     onChangeText={(text) => setLoginData({...loginData, username:text})}
                     style={style.input}

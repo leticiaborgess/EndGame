@@ -39,7 +39,7 @@ export const UserInfoProvider = ({children}) => {
         try {
             await AsyncStorage.setItem(key, value)
         } catch (e) {
-            // saving error
+            console.log(e);
         }
     }
 
@@ -52,7 +52,7 @@ export const UserInfoProvider = ({children}) => {
             return null;
 
         } catch(e) {
-            // error reading value
+            console.log(e);
         }
     }
 
