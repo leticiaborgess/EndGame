@@ -19,7 +19,8 @@ export const Login = ({ navigation }) => {
 
     function handleSubmit() {
         login(loginData).then(res => {
-            setUserData(res.headers.username, res.headers.hash);
+            setUserData(res.headers.username, res.headers.authentication);
+            navigation.navigate('Home');
         }).catch(error => {
            setError(error.response.headers.errormsg);
         });
