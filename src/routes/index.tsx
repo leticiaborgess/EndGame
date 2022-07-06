@@ -8,17 +8,23 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Receitas } from "../screens/Receitas";
 import { Categorias } from "../screens/Categorias";
+import { useContext } from "react";
+import { UserInfoContext } from "../context/UserInfoContext";
 
 
 const Stack = createStackNavigator();
 
 function MyStack() {
+  const {hash} = useContext(UserInfoContext);
+
   return (
     <Stack.Navigator
-      initialRouteName='Cadastro'
+      initialRouteName= {hash === "" ? 'Cadastro' : 'Home'}
       screenOptions={{
         headerShown: false
       }}>
+
+        {console.log(hash)}
       <Stack.Screen name='Cadastro' component={Cadastro} />
       <Stack.Screen name='Login' component={Login} />
       <Stack.Screen name='Home' component={MyDrawer} />
