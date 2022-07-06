@@ -6,6 +6,7 @@ import { Logout } from "../screens/Logout";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { Receitas } from "../screens/Receitas";
 
 
 const Stack = createStackNavigator();
@@ -36,6 +37,7 @@ function MyDrawer() {
       
     }}>
       <Drawer.Screen name="Home" component={Home} />
+      <Drawer.Screen name="Receitas" component={Receitas} />
       <Drawer.Screen name="Logout" component={Logout} />
     </Drawer.Navigator>
   );

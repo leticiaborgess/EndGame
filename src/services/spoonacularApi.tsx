@@ -12,3 +12,7 @@ const spoonacularApi = axios.create({
 export function spoonCadastro(connectData: cadDataType) {
     return spoonacularApi.post('/users/connect', connectData);
 };
+
+export function getReceitas() {
+    return spoonacularApi.get('/recipes/complexSearch');
+};
