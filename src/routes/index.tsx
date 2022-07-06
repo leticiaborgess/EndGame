@@ -15,16 +15,14 @@ import { UserInfoContext } from "../context/UserInfoContext";
 const Stack = createStackNavigator();
 
 function MyStack() {
-  const {hash} = useContext(UserInfoContext);
 
   return (
     <Stack.Navigator
-      initialRouteName= {hash === "" ? 'Cadastro' : 'Home'}
+      initialRouteName= "Cadastro"
       screenOptions={{
         headerShown: false
       }}>
 
-        {console.log(hash)}
       <Stack.Screen name='Cadastro' component={Cadastro} />
       <Stack.Screen name='Login' component={Login} />
       <Stack.Screen name='Home' component={MyDrawer} />
