@@ -7,6 +7,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Receitas } from "../screens/Receitas";
+import { Categorias } from "../screens/Categorias";
 
 
 const Stack = createStackNavigator();
@@ -38,6 +39,7 @@ function MyDrawer() {
     }}>
       <Drawer.Screen name="Home" component={Home} />
       <Drawer.Screen name="Receitas" component={Receitas} />
+      <Drawer.Screen name="Categorias" component={Categorias} />
       <Drawer.Screen name="Logout" component={Logout} />
     </Drawer.Navigator>
   );
