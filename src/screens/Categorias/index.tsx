@@ -1,13 +1,35 @@
 import React from "react";
-import { View } from "react-native";
+import { FlatList, View } from "react-native";
+import { CategoriaCard } from "../../components/CategoriaCard";
 import { Header } from "../../components/Header";
 
 export const Categorias = () => {
+    const categorias = [
+        "main course",
+        "side dish",
+        "dessert",
+        "appetizer",
+        "salad",
+        "bread",
+        "breakfast",
+        "soup",
+        "beverage",
+        "sauce",
+        "marinade",
+        "fingerfood",
+        "snack",
+        "drink"
+    ]
+
     return (
         <View>
             <Header
-                titulo="Receitas"
+                titulo="Categorias"
             />
+
+            <FlatList data={categorias} renderItem={({item}) =>
+                <CategoriaCard title={item}/>
+            }/>
         </View>
     )
 }
