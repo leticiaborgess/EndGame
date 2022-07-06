@@ -6,6 +6,7 @@ import { TextInput } from "react-native-gesture-handler";
 import { Header } from "../../components/Header";
 import { spoonCadastro } from "../../services/spoonacularApi";
 import { cadastro } from "../../services/endgameApi";
+import { UserInfoContext } from "../../context/UserInfoContext";
 
 
 export interface cadDataType {
@@ -26,6 +27,7 @@ interface responseType {
 export const Cadastro = ({ navigation }) => {
     const [connectData, setConnectData] = useState<cadDataType>();
     const [error, setError] = useState<string>();
+    const {hash} = useContext(UserInfoContext);
 
     function handleSubmit() {
         spoonCadastro(connectData).then((res) => {
@@ -43,6 +45,13 @@ export const Cadastro = ({ navigation }) => {
             });
         }
     }, [connectData?.spoonUsername, connectData?.hash])
+
+    useEffect(() => {
+        console.log(hash)
+        if(hash !== "" && hash) {
+            navigation.navigate('Home');
+        }
+    }, [hash])
 
     return (
         <View style={style.container}>

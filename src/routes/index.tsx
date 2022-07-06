@@ -7,17 +7,22 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Receitas } from "../screens/Receitas";
+import { Categorias } from "../screens/Categorias";
+import { useContext } from "react";
+import { UserInfoContext } from "../context/UserInfoContext";
 
 
 const Stack = createStackNavigator();
 
 function MyStack() {
+
   return (
     <Stack.Navigator
-      initialRouteName='Cadastro'
+      initialRouteName= "Cadastro"
       screenOptions={{
         headerShown: false
       }}>
+
       <Stack.Screen name='Cadastro' component={Cadastro} />
       <Stack.Screen name='Login' component={Login} />
       <Stack.Screen name='Home' component={MyDrawer} />
@@ -38,6 +43,7 @@ function MyDrawer() {
     }}>
       <Drawer.Screen name="Home" component={Home} />
       <Drawer.Screen name="Receitas" component={Receitas} />
+      <Drawer.Screen name="Categorias" component={Categorias} />
       <Drawer.Screen name="Logout" component={Logout} />
     </Drawer.Navigator>
   );
