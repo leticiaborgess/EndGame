@@ -3,7 +3,7 @@ import { FlatList, View } from "react-native";
 import { CategoriaCard } from "../../components/CategoriaCard";
 import { Header } from "../../components/Header";
 
-export const Categorias = () => {
+export const Categorias = ({navigation}) => {
     const categorias = [
         "main course",
         "side dish",
@@ -28,7 +28,10 @@ export const Categorias = () => {
             />
 
             <FlatList data={categorias} renderItem={({item}) =>
-                <CategoriaCard title={item}/>
+                <CategoriaCard
+                    title={item}
+                    onPress={() => navigation.navigate('Receitas', {title: item})}
+                />
             }/>
         </View>
     )

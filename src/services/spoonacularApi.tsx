@@ -15,6 +15,13 @@ export function spoonCadastro(connectData: cadDataType) {
 
 export function getReceitas() {
     return spoonacularApi.get('/recipes/complexSearch', {params: {
-        number: 100
+        number: 100,
+    }});
+};
+
+export function getReceitasByCategoria(categoria: string) {
+    return spoonacularApi.get('/recipes/complexSearch', {params: {
+        number: 100,
+        type: categoria
     }});
 };
