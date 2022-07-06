@@ -35,7 +35,7 @@ function MyDrawer() {
       drawerActiveBackgroundColor: '#FFE9B1',
       
     }}>
-      <Drawer.Screen name="Main" component={Home} />
+      <Drawer.Screen name="Home" component={Home} />
       <Drawer.Screen name="Logout" component={Logout} />
     </Drawer.Navigator>
   );
