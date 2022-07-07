@@ -61,7 +61,7 @@ export const Cadastro = ({ navigation }) => {
 
                 <View style={style.body}>
                         <Text style={{fontSize: 20, marginTop: 15}}>
-                            Cadastre-se
+                           Sign Up
                         </Text>
 
                         {error &&
@@ -82,13 +82,13 @@ export const Cadastro = ({ navigation }) => {
                             <TextInput
                                 onChangeText={(text) => setConnectData({...connectData, nome:text})}
                                 style={style.input}
-                                placeholder="Primeiro Nome"
+                                placeholder="First Name"
                             />
 
                             <TextInput
                                 onChangeText={(text) => setConnectData({...connectData, sobrenome:text})}
                                 style={style.input}
-                                placeholder="Sobrenome"
+                                placeholder="Last Name"
                             />
 
                             <TextInput
@@ -101,16 +101,16 @@ export const Cadastro = ({ navigation }) => {
                                 onChangeText={(text) => setConnectData({...connectData, senha:text})}
                                 style={style.input}
                                 secureTextEntry={true}
-                                placeholder="Senha"
+                                placeholder="Password"
                             />
                         </View>
                 </View>
             
             <Botao
-                titulo="Cadastrar"
+                titulo="Sign Up"
                 onPress={handleSubmit}
             />
-            <TouchableOpacity onPress={() => navigation.navigate('Login')} style={{alignSelf:'center', marginTop: 10}}><Text>Já possui conta? Entre aqui!</Text></TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Login')} style={{alignSelf:'center', marginTop: 10}}><Text>Already have an account? Login here!</Text></TouchableOpacity>
         </View>
     );
 }

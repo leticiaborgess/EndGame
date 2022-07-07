@@ -33,7 +33,7 @@ export const Receitas = ({navigation, route}) => {
     return (
         <View>
             <Header
-                titulo="Receitas"
+                titulo="Recipes"
             />
 
             <FlatList data={recipes} renderItem={({item}) => 
