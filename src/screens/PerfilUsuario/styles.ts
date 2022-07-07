@@ -10,13 +10,27 @@ export const styles = StyleSheet.create({
         height: 150,
         borderRadius: 40,
         tintColor: '#FFBD17',
-        marginTop: "20%",
-        marginBottom: "10%"
+        marginTop: "10%",
 
     },
     userInfo: {
        fontSize: 25,
        fontWeight: 'bold',
+       marginBottom: '5%',
+    },
+    input: {
+        padding: 10,
+        marginHorizontal: 20,
+        marginTop: 15,
+        borderRadius: 7,
+        fontSize: 18,
+        borderWidth: 1.8,
+        borderColor: '#aaa',
+        color: '#aaa'
+    },
+    text: {
+        marginLeft: 22,
+        fontSize: 20,
     },
 }
 );
