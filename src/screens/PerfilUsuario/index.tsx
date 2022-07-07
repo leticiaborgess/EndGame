@@ -38,19 +38,19 @@ export const PerfilUsuario = (identificacao) => {
 
     function update () {
         if (nome != ''){
-            setUserData({ ...userData, nome: nome})
+            setUserData({ ...userData, nome: nome});
         }       
         if (sobrenome != ''){
-            setUserData({ ...userData, sobrenome: sobrenome})
+            setUserData({ ...userData, sobrenome: sobrenome});
         }  
         if (email != ''){
-            setUserData({ ...userData, email: email})
+            setUserData({ ...userData, email: email});
         } 
         if (username != ''){
-            setUserData({ ...userData, username: username})
+            setUserData({ ...userData, username: username});
         } 
         if (senha != ''){
-            setUserData({ ...userData, senha: senha})
+            setUserData({ ...userData, senha: senha});
         };
     };
 
