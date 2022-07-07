@@ -5,7 +5,7 @@ const spoonacularApi = axios.create({
     baseURL: 'https://api.spoonacular.com',
     
     params: {
-        apiKey: 'b987c8c43e9c44e3ad10e12e4bdb8daa'
+        apiKey: 'b923a21be2144adfa667ea87421d30fd'
     }
 });
 
@@ -24,4 +24,12 @@ export function getReceitasByCategoria(categoria: string) {
         number: 100,
         type: categoria
     }});
+};
+
+export function getReceitaById(id: string) {
+    return spoonacularApi.get(`/recipes/${id}/information`);
+};
+
+export function getInstructions(id: string) {
+    return spoonacularApi.get(`/recipes/${id}/analyzedInstructions`);
 };

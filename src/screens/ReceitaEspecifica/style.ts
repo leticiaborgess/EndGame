@@ -23,6 +23,7 @@ export const style = StyleSheet.create({
         width: 100,
         height: 70,
         borderRadius: 10,
+        marginHorizontal: 4
 
     },
     titulo: {
@@ -49,6 +50,7 @@ export const style = StyleSheet.create({
         borderRadius: 10,
     },
     item: {
-        fontSize: 17
+        fontSize: 15,
+        marginVertical: 7
     }
 })
