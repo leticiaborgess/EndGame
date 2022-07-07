@@ -2,17 +2,18 @@ import React, {useState} from 'react';
 import {TextInput, TextInputProps, View, Text, Image} from 'react-native';
 import { style } from './style';
 
-interface BotaoProps extends TextInputProps {
+interface PesquisaProps extends TextInputProps {
     titulo? : string;
 }
-export const Pesquisa = ( {titulo, ...rest}: BotaoProps ) => {
+export const Pesquisa = ( {titulo, ...rest}: PesquisaProps ) => {
 
     return(
-        <View>
-            <Text>Search here</Text>
-            <TextInput style={style.barraPesquisa}/>
-            <Image source={require('./src/assets/icons/search.png')}
-                    style={style.lupa}/>
+        <View style={style.container}>
+            <TextInput  
+            inlineImageLeft="search_icon"
+            placeholder='Search here'
+            style={style.barraPesquisa}/>
+           
         </View>
     );
     }
