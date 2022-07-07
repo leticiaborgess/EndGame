@@ -1,33 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TouchableOpacity, TouchableOpacityProps, Text, ViewProps, View, Image } from "react-native";
 import { Header } from "../../components/Header";
 import { style } from "./style"
 import Estrela from "../../assets/icons/estrela.png"
 import Fav from "../../assets/icons/fav.png"
 import { FlatList, ScrollView } from "react-native-gesture-handler";
+import { getInstructions, getReceitaById } from "../../services/spoonacularApi";
 
-// interface ReceitaProps extends ViewProps {
-//     title: string;
-//     image: string;
-//     readyInMinutes: number;
-//     servings: number;
-//     extendedIngredients: [
-//         {
-//             original: string;
-//         }
-//     ]
-//     steps: [
-//         {
-//             number: number;
-//             step: string;
-//         }
-//     ]
-// }
+ interface ReceitaType{
+     title: string;
+     image: string;
+     readyInMinutes: number;
+     servings: number;
 
+     extendedIngredients: [
+         {original: string}
+     ];
+}
 
-export const ReceitaEspecifica = () => {
+interface InstructionsType{
+    steps: [
+        step: string
+    ]
+}
+
+export const ReceitaEspecifica = ({route}) => {
 
     const [fav, setFav] = useState<boolean>(true);
+    const [receita, setReceita] = useState<ReceitaType>();
+    const [instructions, setInstructions] = useState<InstructionsType[]>([]);
 
 
     function mudaCor() {
@@ -38,18 +39,31 @@ export const ReceitaEspecifica = () => {
         }
     }
 
+    useEffect(() => {
+        getReceitaById(route.params.id).then(res => {
+            setReceita(res.data);
+        }).catch(error => {
+            console.log(error)
+        });
+
+        getInstructions(route.params.id).then(res => {
+            setInstructions(res.data);
+        }).catch(error => {
+            console.log(error)
+        });
+    }, [])
+
     return (
-        <View style={{ flexDirection: 'column' }}>
+        <ScrollView style={{ flexDirection: 'column' }}>
             <Header
            
-                titulo="Pasta with Garlic"
+                titulo={receita?.title}
             />
 
             <View >
-
                 <Image style={style.imagem}
                     source={{
-                        uri: "https://spoonacular.com/recipeImages/716429-556x370.jpg"
+                        uri: receita?.image
                     }} />
             </View>
             <View style={style.card}>
@@ -58,7 +72,7 @@ export const ReceitaEspecifica = () => {
                         Preparo
                     </Text>
                     <Text style={style.texto}>
-                        45 min
+                        {receita?.readyInMinutes} min
                     </Text>
                 </View>
                 <View style={style.info}>
@@ -66,7 +80,7 @@ export const ReceitaEspecifica = () => {
                         Porções
                     </Text>
                     <Text style={style.texto}>
-                        5
+                        {receita?.servings}
                     </Text>
                 </View>
                 <View style={style.info}>
@@ -86,29 +100,21 @@ export const ReceitaEspecifica = () => {
                     <Text>Ingredientes</Text>
 
                     <FlatList
-                        data={[
-                            { key: '5 dentes de alho amassados' },
-                            { key: '5 colheres de sopa de óleo' },
-                            { key: '1 colher de sopa de manteiga' },
-                            { key: 'Sal a gosto' },
-                        ]}
-                        renderItem={({ item }) => <Text style={style.item}> ☼ {item.key};</Text>}
+                        data={receita?.extendedIngredients}
+                        renderItem={({ item }) => <Text style={style.item}> ☼ {item.original};</Text>}
                     />
                 </View>
 
                 <View style={style.ingredient}>
+                    <Text>Steps</Text>
+
                     <FlatList
-                        data={[
-                            { key: '5 dentes de alho amassados' },
-                            { key: '5 colheres de sopa de óleo' },
-                            { key: '1 colher de sopa de manteiga' },
-                            { key: 'Sal a gosto' },
-                        ]}
-                        renderItem={({ item }) => <Text style={style.item}> ☼ {item.key};</Text>}
+                        data={instructions[0]?.steps}
+                        renderItem={({ item }) => <Text style={style.item}> ☼ {item.step}</Text>}
                     />
                 </View>
             </View>
-        </View>
+        </ScrollView>
 
     )
 }
