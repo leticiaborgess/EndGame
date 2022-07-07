@@ -29,6 +29,9 @@ export const Receitas = ({navigation, route}) => {
         }
     }, [route.params]);
 
+    function handlePressReceita(id: string) {
+        navigation.navigate('ReceitaEspecifica', {id: id});
+    }
 
     return (
         <View>
@@ -40,6 +43,7 @@ export const Receitas = ({navigation, route}) => {
                 <ReceitaCard
                     imgUrl={item.image}
                     nome={item.title}
+                    onPress={() => handlePressReceita(item.id)}
                 />
             } />
             

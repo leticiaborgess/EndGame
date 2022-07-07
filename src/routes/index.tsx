@@ -10,6 +10,7 @@ import { Receitas } from "../screens/Receitas";
 import { Categorias } from "../screens/Categorias";
 import { useContext } from "react";
 import { UserInfoContext } from "../context/UserInfoContext";
+import { ReceitaEspecifica } from "../screens/ReceitaEspecifica";
 
 
 const Stack = createStackNavigator();
@@ -25,6 +26,7 @@ function MyStack() {
 
       <Stack.Screen name='Cadastro' component={Cadastro} />
       <Stack.Screen name='Login' component={Login} />
+      <Stack.Screen name='ReceitaEspecifica' component={ReceitaEspecifica} />
       <Stack.Screen name='Home' component={MyDrawer} />
     </Stack.Navigator>
   )

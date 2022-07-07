@@ -25,7 +25,7 @@ import { FlatList, ScrollView } from "react-native-gesture-handler";
 // }
 
 
-export const ReceitaEspecifica = () => {
+export const ReceitaEspecifica = ({route}) => {
 
     const [fav, setFav] = useState<boolean>(true);
 
