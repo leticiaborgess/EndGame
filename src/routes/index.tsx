@@ -38,17 +38,24 @@ function MyDrawer() {
   return (
 
     <Drawer.Navigator
+    
     screenOptions={{
       headerShown: false,
       drawerPosition: "right",
-      drawerActiveBackgroundColor: '#FFE9B1',
+      drawerActiveBackgroundColor: '#FFBD17',
+      drawerLabelStyle:{
+        color: 'black'
+      },
+      drawerStyle: {
+        backgroundColor: '#FFE9B1',
+      }
       
     }}>
       <Drawer.Screen name="Home" component={Home} />
-      <Drawer.Screen name="Receitas" component={Receitas} />
-      <Drawer.Screen name="Categorias" component={Categorias} />
-      <Drawer.Screen name="Perfil" component={PerfilUsuario} />
-      <Drawer.Screen name="Favoritos" component={Favoritos} />
+      <Drawer.Screen name="Recipes" component={Receitas} />
+      <Drawer.Screen name="Categories" component={Categorias} />
+      <Drawer.Screen name="Profile" component={PerfilUsuario} />
+      <Drawer.Screen name="Favorites" component={Favoritos} />
       <Drawer.Screen name="Logout" component={Logout} />
     </Drawer.Navigator>
   );

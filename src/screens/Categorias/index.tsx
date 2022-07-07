@@ -30,7 +30,7 @@ export const Categorias = ({navigation}) => {
             <FlatList data={categorias} renderItem={({item}) =>
                 <CategoriaCard
                     title={item}
-                    onPress={() => navigation.navigate('Receitas', {title: item})}
+                    onPress={() => navigation.navigate('Recipes', {title: item})}
                 />
             }/>
         </View>
