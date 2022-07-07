@@ -8,6 +8,7 @@ import { Logout } from "../Logout";
 import { UserInfoContext } from "../../context/UserInfoContext";
 
 import userImage from '../../assets/images/user.png'
+import { ScrollView } from "react-native-gesture-handler";
 
 
 interface userInterface {
@@ -30,7 +31,7 @@ export const PerfilUsuario = ({navigation}) => {
     const [userData, setUserData] = useState<userInterface>();
 
     useEffect(() => {
-        getUserData({username}).then(data => { //substituir por username
+        getUserData("ian").then(data => { //substituir por username
             setUserData(data.data)
         }).catch(error => { console.log(error) })
     }, []);
@@ -60,7 +61,7 @@ export const PerfilUsuario = ({navigation}) => {
     };
 
     return (
-        <View style={{ flex: 1 }}>
+        <ScrollView style={{ flex: 1 }}>
             <Header
                 titulo="Perfil"
             />
@@ -94,6 +95,7 @@ export const PerfilUsuario = ({navigation}) => {
                 <TextInput
                     style={styles.input}
                     placeholder='Senha'
+                    secureTextEntry={true}
                     onChangeText={(text)=>setSenha(text)}
                 />
                 <Botao
@@ -104,6 +106,6 @@ export const PerfilUsuario = ({navigation}) => {
                     <Text>Sair</Text>
                 </TouchableOpacity>
             </View>
-        </View>
+        </ScrollView>
     )
 }

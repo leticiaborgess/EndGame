@@ -14,7 +14,7 @@ export const BotaoSobremesa = ({navigation}) => {
                 <Image source={Sobremesa} style={style.sobremesaImage} />
                     <Text style={style.textoBox}>
                         Check out the best desserts to make with the kids on vacation!
-                    </Text>            
+                    </Text>
                 </TouchableOpacity>
                 
             </View>
