@@ -6,5 +6,5 @@ export default function Card(){
     return(
         <View style={style.card}>
         </View>
-    )
-}
+    );
+};
