@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
-import {TextInput, View, Text, Image} from 'react-native';
+import {TextInput, TextInputProps, View, Text, Image} from 'react-native';
 import { style } from './style';
 
-export default function Pesquisa(){
+interface BotaoProps extends TextInputProps {
+    titulo? : string;
+}
+export const Pesquisa = ( {titulo, ...rest}: BotaoProps ) => {
 
-    const [palavras,setPalavras]=useState("")
-    const mudarSearch=()=>{}
     return(
         <View>
             <Text>Search here</Text>
@@ -14,4 +15,4 @@ export default function Pesquisa(){
                     style={style.lupa}/>
         </View>
     );
-};
+    }
