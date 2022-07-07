@@ -33,16 +33,16 @@ export const Logout = ( {navigation} ) => {
             titulo="Sair"
             />
             <View style={style.container}>
-                <Text style={style.sair}>Tem certeza que deseja sair?</Text>
+                <Text style={style.sair}>Are you sure you want to logout?</Text>
             </View>
             <View style={style.botoesSair}>
                 
                 <TouchableOpacity onPress={handleSim}>
-                    <Text style={style.sim}>Sim</Text>
+                    <Text style={style.sim}>Yes</Text>
                 </TouchableOpacity>
                 
                 <TouchableOpacity onPress={handleNao}>
-                    <Text style={style.nao}>Não</Text>
+                    <Text style={style.nao}>No</Text>
                 </TouchableOpacity>
             
             </View>

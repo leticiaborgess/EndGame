@@ -29,17 +29,21 @@ export const Receitas = ({navigation, route}) => {
         }
     }, [route.params]);
 
+    function handlePressReceita(id: string) {
+        navigation.navigate('ReceitaEspecifica', {id: id});
+    }
 
     return (
         <View>
             <Header
-                titulo="Receitas"
+                titulo="Recipes"
             />
 
             <FlatList data={recipes} renderItem={({item}) => 
                 <ReceitaCard
                     imgUrl={item.image}
                     nome={item.title}
+                    onPress={() => handlePressReceita(item.id)}
                 />
             } />
             

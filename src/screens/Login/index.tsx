@@ -59,7 +59,7 @@ export const Login = ({ navigation }) => {
             />
             <TouchableOpacity onPress={() => navigation.navigate('Cadastro')} 
                 style={{alignSelf:'center', marginTop: 10}}>
-                <Text>Criar conta</Text>
+                <Text>Create Account</Text>
             </TouchableOpacity>
             </View>
         </View>
