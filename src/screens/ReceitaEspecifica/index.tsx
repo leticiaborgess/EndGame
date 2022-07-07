@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { TouchableOpacity, TouchableOpacityProps, Text, ViewProps, View, Image } from "react-native";
 import { Header } from "../../components/Header";
 import { style } from "./style"
@@ -6,8 +6,10 @@ import Estrela from "../../assets/icons/estrela.png"
 import Fav from "../../assets/icons/fav.png"
 import { FlatList, ScrollView } from "react-native-gesture-handler";
 import { getInstructions, getReceitaById } from "../../services/spoonacularApi";
+import { UserInfoContext } from "../../context/UserInfoContext";
 
  interface ReceitaType{
+     id: string;
      title: string;
      image: string;
      readyInMinutes: number;
@@ -26,16 +28,28 @@ interface InstructionsType{
 
 export const ReceitaEspecifica = ({route}) => {
 
-    const [fav, setFav] = useState<boolean>(true);
+    const [fav, setFavorito] = useState<boolean>(true);
     const [receita, setReceita] = useState<ReceitaType>();
     const [instructions, setInstructions] = useState<InstructionsType[]>([]);
+
+    const {favoritos, setFav} = useContext(UserInfoContext)
+
+
+    useEffect(() => {
+        if(favoritos.find(element => element.id === receita?.id)) {
+            setFavorito(false);
+        }
+    }, [receita])
 
 
     function mudaCor() {
         if (fav === false) {
-            setFav(true);
+            setFavorito(true);
+            setFav(favoritos.filter((item) => item.id !== receita?.id));
         } else {
-            setFav(false);
+            setFavorito(false);
+            setFav([...favoritos, {id:receita.id, title: receita.title, imgUrl: receita.image}]);
+            console.log(favoritos)
         }
     }
 
