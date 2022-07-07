@@ -45,6 +45,7 @@ export const ReceitaEspecifica = ({route}) => {
     function mudaCor() {
         if (fav === false) {
             setFavorito(true);
+            setFav(favoritos.filter((item) => item.id !== receita?.id));
         } else {
             setFavorito(false);
             setFav([...favoritos, {id:receita.id, title: receita.title, imgUrl: receita.image}]);
