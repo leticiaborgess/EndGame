@@ -35,6 +35,13 @@ export const ReceitaEspecifica = ({route}) => {
     const {favoritos, setFav} = useContext(UserInfoContext)
 
 
+    useEffect(() => {
+        if(favoritos.find(element => element.id === receita?.id)) {
+            setFavorito(false);
+        }
+    }, [receita])
+
+
     function mudaCor() {
         if (fav === false) {
             setFavorito(true);
