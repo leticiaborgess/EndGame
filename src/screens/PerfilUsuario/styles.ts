@@ -14,9 +14,9 @@ export const styles = StyleSheet.create({
 
     },
     userInfo: {
-       fontSize: 25,
-       fontWeight: 'bold',
-       marginBottom: '5%',
+        fontSize: 25,
+        fontWeight: 'bold',
+        marginBottom: '5%',
     },
     input: {
         padding: 10,
@@ -32,5 +32,13 @@ export const styles = StyleSheet.create({
         marginLeft: 22,
         fontSize: 20,
     },
-}
-);
+    button: {
+        borderRadius: 10,
+        padding: 10,
+        width: 100,
+        alignSelf: 'center',
+        alignItems: 'center',
+        backgroundColor: 'red',
+        marginTop: 15
+    },
+});

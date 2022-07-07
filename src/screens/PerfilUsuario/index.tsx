@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { View, Text, Image, TextInput } from 'react-native';
+import React, { useContext, useEffect, useState } from "react";
+import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
 import { Header } from "../../components/Header";
 import { getUserData } from "../../services/endgameApi";
 import { styles } from "./styles";
-import userImage from '../../assets/images/user.png'
-import { style } from "../Cadastro/style";
 import { Botao } from "../../components/Botao";
-import { Home } from "../Home";
+import { Logout } from "../Logout";
+import { UserInfoContext } from "../../context/UserInfoContext";
+
+import userImage from '../../assets/images/user.png'
+
 
 interface userInterface {
     "id": number,
@@ -20,12 +22,14 @@ interface userInterface {
     "favoritos": []
 }
 
-export const PerfilUsuario = (identificacao) => {
+export const PerfilUsuario = ({navigation}) => {
+
+    const {username} = useContext(UserInfoContext);
 
     const [userData, setUserData] = useState<userInterface>();
 
     useEffect(() => {
-        getUserData("biaramos").then(data => { //substituir por username
+        getUserData(username).then(data => { //substituir por username
             setUserData(data.data)
         }).catch(error => { console.log(error) })
     }, []);
@@ -33,7 +37,7 @@ export const PerfilUsuario = (identificacao) => {
     const [nome, setNome] = useState('');
     const [sobrenome, setSobrenome] = useState('');
     const [email, setEmail] = useState('');
-    const [username, setUsername] = useState('');
+    const [usernameUp, setUsernameUp] = useState('');
     const [senha, setSenha] = useState('');
 
     function update () {
@@ -46,8 +50,8 @@ export const PerfilUsuario = (identificacao) => {
         if (email != ''){
             setUserData({ ...userData, email: email});
         } 
-        if (username != ''){
-            setUserData({ ...userData, username: username});
+        if (usernameUp != ''){
+            setUserData({ ...userData, username: usernameUp});
         } 
         if (senha != ''){
             setUserData({ ...userData, senha: senha});
@@ -84,7 +88,7 @@ export const PerfilUsuario = (identificacao) => {
                 <TextInput
                     style={styles.input}
                     placeholder={userData ? userData.username : "error"}
-                    onChangeText={(text)=>setUsername(text)}
+                    onChangeText={(text)=>setUsernameUp(text)}
                 />
                 <TextInput
                     style={styles.input}
@@ -95,8 +99,10 @@ export const PerfilUsuario = (identificacao) => {
                     titulo="Salvar"
                     onPress={update}
                 />
+                <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('Logout')}>
+                    <Text>Sair</Text>
+                </TouchableOpacity>
             </View>
-
         </View>
     )
 }
