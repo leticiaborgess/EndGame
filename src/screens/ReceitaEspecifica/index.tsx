@@ -68,7 +68,7 @@ export const ReceitaEspecifica = ({route}) => {
             <View style={style.card}>
                 <View style={style.info}>
                     <Text style={style.titulo}>
-                        Preparo
+                        Prepare
                     </Text>
                     <Text style={style.texto}>
                         {receita?.readyInMinutes} min
@@ -76,7 +76,7 @@ export const ReceitaEspecifica = ({route}) => {
                 </View>
                 <View style={style.info}>
                     <Text style={style.titulo}>
-                        Porções
+                        Servings
                     </Text>
                     <Text style={style.texto}>
                         {receita?.servings}
@@ -84,7 +84,7 @@ export const ReceitaEspecifica = ({route}) => {
                 </View>
                 <View style={style.info}>
                     <Text style={style.titulo}>
-                        Favoritar
+                        Like
                     </Text>
                     <TouchableOpacity onPress={mudaCor}>
                         <Image
@@ -96,7 +96,7 @@ export const ReceitaEspecifica = ({route}) => {
             </View>
             <View>
                 <View style={style.ingredient}>
-                    <Text style={style.head}>Ingredientes</Text>
+                    <Text style={style.head}>Ingredients</Text>
 
                     <FlatList
                         data={receita?.extendedIngredients}
