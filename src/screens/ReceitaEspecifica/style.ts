@@ -1,6 +1,13 @@
 import { StyleSheet } from "react-native";
 
 export const style = StyleSheet.create({
+    nomeReceita:{
+        textAlign: 'center',
+        fontSize: 20,
+        fontWeight: 'bold',
+        margin: 10,
+
+    },
     imagem: {
         width: 300,
         height: 300,
@@ -17,14 +24,16 @@ export const style = StyleSheet.create({
         flexDirection: 'column',
         alignSelf: 'center',
         textAlign: 'center',
-    
         backgroundColor: 'lightgray',
         padding: 10,
         width: 100,
         height: 70,
         borderRadius: 10,
         marginHorizontal: 4
-
+    },
+    head: {
+        textAlign: 'center', fontWeight:'bold', 
+        fontSize: 17
     },
     titulo: {
         fontSize: 17,
@@ -48,6 +57,7 @@ export const style = StyleSheet.create({
         marginTop: 10,
         padding: 10,
         borderRadius: 10,
+        marginBottom: 10
     },
     item: {
         fontSize: 15,

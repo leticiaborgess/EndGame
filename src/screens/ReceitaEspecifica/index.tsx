@@ -56,9 +56,8 @@ export const ReceitaEspecifica = ({route}) => {
     return (
         <ScrollView style={{ flexDirection: 'column' }}>
             <Header
-           
-                titulo={receita?.title}
-            />
+           />
+           <Text style={style.nomeReceita}>{receita?.title}</Text>
 
             <View >
                 <Image style={style.imagem}
@@ -97,7 +96,7 @@ export const ReceitaEspecifica = ({route}) => {
             </View>
             <View>
                 <View style={style.ingredient}>
-                    <Text>Ingredientes</Text>
+                    <Text style={style.head}>Ingredientes</Text>
 
                     <FlatList
                         data={receita?.extendedIngredients}
@@ -106,7 +105,7 @@ export const ReceitaEspecifica = ({route}) => {
                 </View>
 
                 <View style={style.ingredient}>
-                    <Text>Steps</Text>
+                    <Text style={style.head}>Steps</Text>
 
                     <FlatList
                         data={instructions[0]?.steps}
