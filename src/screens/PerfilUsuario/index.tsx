@@ -25,11 +25,12 @@ interface userInterface {
 export const PerfilUsuario = ({navigation}) => {
 
     const {username} = useContext(UserInfoContext);
+    console.log(username)
 
     const [userData, setUserData] = useState<userInterface>();
 
     useEffect(() => {
-        getUserData(username).then(data => { //substituir por username
+        getUserData({username}).then(data => { //substituir por username
             setUserData(data.data)
         }).catch(error => { console.log(error) })
     }, []);
