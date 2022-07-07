@@ -5,7 +5,7 @@ const spoonacularApi = axios.create({
     baseURL: 'https://api.spoonacular.com',
     
     params: {
-        apiKey: 'b923a21be2144adfa667ea87421d30fd'
+        apiKey: '4612903f642543e9b6bdbd7bebf6925b'
     }
 });
 
